@@ -42,36 +42,31 @@ module.exports = React.createClass({
       searchText: searchText,
     });
   },
-  handleToggle: function (id) {
-    var updatedTodos = this.state.todos.map((todo)=>{
-      if(todo.id===id) {
-        todo.completed = !todo.completed;
-      }
 
-      return todo;
+  handleToggle: function (id) { 
+    this.setState((prevState) => {
+
+      var ret = prevState.todos.map((todo)=>{
+            if(todo.id===id) {
+              todo.completed = !todo.completed;
+            }
+            return todo;
+          });
+
+      return { todos: ret };
     });
-
-    this.setState({todos: updatedTodos});
-    //my solution that works
-    /*
-      var {todos} = this.state;
-      var item = todos.find( todo => todo.id === id );
-      if(item){
-          item.completed = isCompleted;
-          this.setState({todos: todos});
-      }
-      */
-
   },
   render: function() {
     var {todos,showCompleted,searchText} = this.state;
+    var filteredTodos = TodoAPI.filterTodos(todos,showCompleted,searchText);
+
     return (
       <div>
         <div className="row">
           <div className="column small-centered medium-6 large-4">
             <h1>Todo App</h1>
             <Search onSearch={this.handleSearch}/>
-            <TodoList todos={todos} showCompleted={showCompleted} searchText={searchText} onToggle={this.handleToggle} />
+            <TodoList todos={filteredTodos} showCompleted={showCompleted} searchText={searchText} onToggle={this.handleToggle} />
             <AddTodo onNewTodo={this.handleNewTodo}/>
           </div>
         </div>

@@ -6,11 +6,12 @@ module.exports = React.createClass({
     var {id, text, completed} = this.props;
 
     return (
-      <div onClick={()=>{
-          this.props.onToggle( id );
-      }} >
+      <div>
         <label >
-          <input type="checkbox" ref="chk" defaultChecked={completed}></input>
+          <input type="checkbox" ref="chk" defaultChecked={completed}
+            onClick={()=>{
+              this.props.onToggle( id );
+            }}></input>
           {text}
         </label>
       </div>

@@ -17,7 +17,9 @@ describe('Todo', () =>{
     var $el = $(ReactDOM.findDOMNode(cmp));
 
     //Simulate the change
-    TestUtils.Simulate.click($el[0]);
+    console.log($el);
+    console.log($el.find('input'));
+    TestUtils.Simulate.click($el.find('input')[0]);
     expect(spy).toHaveBeenCalledWith(1111);
   });
 

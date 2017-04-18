@@ -20,10 +20,10 @@ describe('TodoList', () =>{
           {id:3, completed:true, text:'Wash the car'},
           {id:4, completed:false, text:'Prep my speach'}
         ];
-        var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>); 
+        var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
         //Other way - counting the components
         var nrOfTodoRendered = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
-        expect(nrOfTodoRendered.length).toBe(3);
+        expect(nrOfTodoRendered.length).toBe(4);
     });
   });
 });

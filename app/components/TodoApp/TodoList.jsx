@@ -8,14 +8,10 @@ module.exports = React.createClass({
 
     var renderTodos = ()=> {
       return todos.map((todo)=>{
-        if (!searchText || todo.text.toUpperCase().indexOf(searchText.toUpperCase())>=0){
-          if (todo.completed==false || ( todo.completed && showCompleted)) {
             return (
               //we have to give a unique id to react in key
               <Todo key={todo.id} onToggle={onToggle} {...todo}/>
             );
-          }
-        }
       });
     };
 

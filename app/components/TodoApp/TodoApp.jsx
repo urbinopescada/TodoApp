@@ -1,4 +1,6 @@
 var React = require("react");
+var uuid = require("node-uuid");
+
 var Search = require("Search");
 var TodoList = require("TodoList");
 var AddTodo = require("AddTodo");
@@ -9,19 +11,24 @@ module.exports = React.createClass({
         showCompleted: false,
         searchText: "",
         todos: [
-          {id:1, completed:false, text:'walk the dog'},
-          {id:2, completed:false, text:'clean the garage'},
-          {id:3, completed:true,  text:'Wash the car'},
-          {id:4, completed:false, text:'Prep my speach'}
+          {id: uuid(), completed:false, text:'walk the dog'},
+          {id: uuid(), completed:false, text:'clean the garage'},
+          {id: uuid(), completed:true,  text:'Wash the car'},
+          {id: uuid(), completed:false, text:'Prep my speach'}
         ]
       };
   },
   handleNewTodo: function (text) {
-    var {todos} = this.state;
-    todos.push(
-      {id: ++todos.length, text: text}
-    );
-    this.setState({todos: todos});
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {
+          id: uuid(),
+          completed:false,
+          text: text
+        }
+      ]
+    });
   },
 
   handleSearch: function (showCompleted,searchText){

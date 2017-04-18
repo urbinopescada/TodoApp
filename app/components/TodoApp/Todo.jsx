@@ -2,7 +2,7 @@ var React = require("react");
 
 module.exports = React.createClass({
   handleCompleted: function () {
- 
+
     var isComplete = this.refs.chk.checked;
 
     this.props.onCompletedTodo(this.props.id, isComplete);
@@ -13,7 +13,8 @@ module.exports = React.createClass({
     return (
       <div>
         <label >
-          <input type="checkbox" ref="chk" defaultChecked={completed} onChange={this.handleCompleted}></input>  {id}. {text}
+          <input type="checkbox" ref="chk" defaultChecked={completed} onChange={this.handleCompleted}></input>
+          {text}
         </label>
       </div>
     );

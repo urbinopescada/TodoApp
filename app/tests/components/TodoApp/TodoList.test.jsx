@@ -19,7 +19,7 @@ describe('TodoList', () =>{
           {id:2, text:'clean the garage'},
           {id:3, text:'Wash the car'},
           {id:4, text:'Prep my speach'}
-        ]
+        ];
         var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
         //$el is going to store the root of our component,
         // ReactDOM.findDOMNode(clock)) converts our component into the actual HTML

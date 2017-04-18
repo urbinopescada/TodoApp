@@ -14,7 +14,13 @@ module.exports = React.createClass({
         ]
       };
   },
-
+  handleNewTodo: function (text) {
+    var {todos} = this.state;
+    todos.push(
+      {id: ++todos.length, text: text}
+    );
+    this.setState({todos: todos});
+  },
   render: function() {
     var {todos} = this.state;
     return (
@@ -24,7 +30,7 @@ module.exports = React.createClass({
             <h1>Todo App</h1>
             <Search/>
             <TodoList todos={todos}/>
-            <AddTodo/>
+            <AddTodo onNewTodo={this.handleNewTodo}/>
           </div>
         </div>
       </div>

@@ -37,13 +37,26 @@ module.exports = React.createClass({
       searchText: searchText,
     });
   },
-  handleCompletedTodo: function (id, isCompleted) {
+  handleToggle: function (id) {
+    var updatedTodos = this.state.todos.map((todo)=>{
+      if(todo.id===id) {
+        todo.completed = !todo.completed;
+      }
+
+      return todo;
+    });
+
+    this.setState({todos: updatedTodos});
+    //my solution that works
+    /*
       var {todos} = this.state;
       var item = todos.find( todo => todo.id === id );
       if(item){
           item.completed = isCompleted;
           this.setState({todos: todos});
       }
+      */
+
   },
   render: function() {
     var {todos,showCompleted,searchText} = this.state;
@@ -53,7 +66,7 @@ module.exports = React.createClass({
           <div className="column small-centered medium-6 large-4">
             <h1>Todo App</h1>
             <Search onSearch={this.handleSearch}/>
-            <TodoList todos={todos} showCompleted={showCompleted} searchText={searchText} onCompletedTodo={this.handleCompletedTodo} />
+            <TodoList todos={todos} showCompleted={showCompleted} searchText={searchText} onToggle={this.handleToggle} />
             <AddTodo onNewTodo={this.handleNewTodo}/>
           </div>
         </div>

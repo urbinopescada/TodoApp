@@ -11,14 +11,23 @@ describe('TodoApp', () =>{
     expect(TodoApp).toExist();
   });
 
-  it('should create new todo on handleNewTodo',()=>{
-      var text = "new todo";
-      var todoApp = TestUtils.renderIntoDocument(<TodoApp/>);
+  var text = "new todo";
+  var todoApp = TestUtils.renderIntoDocument(<TodoApp/>);
 
+  it('should create new todo on handleNewTodo',()=>{
       todoApp.setState({todos:[]});
       todoApp.handleNewTodo(text);
 
       expect(todoApp.state.todos.length).toBe(1);
       expect(todoApp.state.todos[0].text).toBe(text);
+  });
+
+  it('should set completed=true on first handleToggle',()=>{
+      todoApp.handleToggle(todoApp.state.todos[0].id);
+      expect(todoApp.state.todos[0].completed).toBe(true);
+  });
+  it('should set completed=false on second handleToggle',()=>{
+      todoApp.handleToggle(todoApp.state.todos[0].id);
+      expect(todoApp.state.todos[0].completed).toBe(false);
   });
 });

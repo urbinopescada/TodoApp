@@ -4,7 +4,7 @@ var Todo = require("Todo");
 module.exports = React.createClass({
 
   render: function() {
-    var {todos,showCompleted,searchText,onCompletedTodo} = this.props;
+    var {todos,showCompleted,searchText,onToggle} = this.props;
 
     var renderTodos = ()=> {
       return todos.map((todo)=>{
@@ -12,7 +12,7 @@ module.exports = React.createClass({
           if (todo.completed==false || ( todo.completed && showCompleted)) {
             return (
               //we have to give a unique id to react in key
-              <Todo key={todo.id} onCompletedTodo={onCompletedTodo} {...todo}/>
+              <Todo key={todo.id} onToggle={onToggle} {...todo}/>
             );
           }
         }

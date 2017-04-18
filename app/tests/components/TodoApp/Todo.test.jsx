@@ -16,9 +16,7 @@ describe('Todo', () =>{
     var cmp = TestUtils.renderIntoDocument(<Todo id={1111} onToggle={spy} />);
     var $el = $(ReactDOM.findDOMNode(cmp));
 
-    //Simulate the change
-    console.log($el);
-    console.log($el.find('input'));
+    //Simulate the change 
     TestUtils.Simulate.click($el.find('input')[0]);
     expect(spy).toHaveBeenCalledWith(1111);
   });

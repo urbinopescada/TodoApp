@@ -1,5 +1,6 @@
 var React = require("react");
 var uuid = require("node-uuid");
+var moment = require("moment");
 
 var Search = require("Search");
 var TodoList = require("TodoList");
@@ -30,7 +31,8 @@ module.exports = React.createClass({
         {
           id: uuid(),
           completed:false,
-          text: text
+          text: text,
+          createdAt: moment().unix()
         }
       ]
     });
@@ -43,12 +45,13 @@ module.exports = React.createClass({
     });
   },
 
-  handleToggle: function (id) { 
+  handleToggle: function (id) {
     this.setState((prevState) => {
 
       var ret = prevState.todos.map((todo)=>{
             if(todo.id===id) {
               todo.completed = !todo.completed;
+              todo.completedAt = todo.completed ? moment().unix(): null;
             }
             return todo;
           });

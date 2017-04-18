@@ -22,12 +22,12 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
+    modulesDirectories: [
+      'node_modules',
+      './app/components',
+      './app/components/TodoApp'
+    ],
     alias: {
-      Main: 'app/components/Main.jsx',
-      Search: 'app/components/Search.jsx',
-      TodoList: 'app/components/TodoList.jsx',
-      Todo: 'app/components/Todo.jsx',
-      AddTodo: 'app/components/AddTodo.jsx', 
       applicationStyles: 'app/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']

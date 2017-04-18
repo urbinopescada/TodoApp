@@ -1,9 +1,18 @@
 var React = require("react");
 
-module.exports = (props) => {
+module.exports = React.createClass({
+
+  render: function() {
+    var {id, text} = this.props;
+
     return (
       <div>
-        <p>Todo component rendered!</p>
+
+        <input id={"todo"+id} type="checkbox"></input>
+        <label htmlFor={"todo"+id} >
+          {id} - {text}
+        </label>
       </div>
     );
-};
+  }
+});

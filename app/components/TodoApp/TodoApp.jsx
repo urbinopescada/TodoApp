@@ -65,12 +65,14 @@ module.exports = React.createClass({
 
     return (
       <div>
+        <h1 className="page-title">Todo App</h1>
         <div className="row">
-          <div className="column small-centered medium-6 large-4">
-            <h1>Todo App</h1>
-            <Search onSearch={this.handleSearch}/>
-            <TodoList todos={filteredTodos} showCompleted={showCompleted} searchText={searchText} onToggle={this.handleToggle} />
-            <AddTodo onNewTodo={this.handleNewTodo}/>
+          <div className="column small-centered small-11 medium-6 large-4">
+            <div className="container">
+              <Search onSearch={this.handleSearch}/>
+              <TodoList todos={filteredTodos} showCompleted={showCompleted} searchText={searchText} onToggle={this.handleToggle} />
+              <AddTodo onNewTodo={this.handleNewTodo}/>
+            </div>
           </div>
         </div>
       </div>

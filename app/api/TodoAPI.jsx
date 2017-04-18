@@ -3,7 +3,7 @@ var $ = require("jquery");
 module.exports = {
   setTodos: function (todos) {
     if($.isArray(todos)){
-      localStorage.setItem("todos", JSON.stringify(todos)); 
+      localStorage.setItem("todos", JSON.stringify(todos));
     }
   },
 
@@ -42,9 +42,9 @@ module.exports = {
       if (!a.completed && b.completed) {ret =-1;}
       if (a.completed && !b.completed) {ret = 1;}
       if (ret===0) {
-        // sort by text
-        if (a.text.toLowerCase() < b.text.toLowerCase()) {ret =-1;}
-        if (a.text.toLowerCase() > b.text.toLowerCase()) {ret = 1;}
+        // sort by text (not user friendly)
+        //if (a.text.toLowerCase() < b.text.toLowerCase()) {ret =-1;}
+        //if (a.text.toLowerCase() > b.text.toLowerCase()) {ret = 1;}
 
       }
       return ret;

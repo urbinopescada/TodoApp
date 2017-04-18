@@ -8,14 +8,14 @@ module.exports = React.createClass({
   },
   render: function () {
     return (
-      <div>
+      <div className="container__header">
         <div>
           <input type="text" ref="txtSearch" placeholder="Search list" onChange={this.handleSearch}></input>
         </div>
         <div>
           <label>
             <input type="checkbox" ref="chkShowCompleted" onChange={this.handleSearch}></input>
-            Show completed items 
+            Show completed items
           </label>
         </div>
       </div>

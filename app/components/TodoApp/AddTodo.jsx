@@ -10,11 +10,11 @@ module.exports =React.createClass({
       this.props.onNewTodo(text);
     }
       this.refs.txtText.focus();
-   
+
   },
   render: function () {
     return (
-      <div>
+      <div className="container__footer">
         <form ref="form" onSubmit={this.handleSubmit}>
           <div>
             <input type="text" ref="txtText" placeholder="What will you do next?"/>
